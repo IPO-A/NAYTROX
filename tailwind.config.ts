@@ -61,7 +61,25 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Gaming Colors
+				'neon-blue': 'hsl(var(--neon-blue))',
+				'neon-green': 'hsl(var(--neon-green))',
+				'neon-orange': 'hsl(var(--neon-orange))',
+				'cyber-purple': 'hsl(var(--cyber-purple))',
+				'dark-bg': 'hsl(var(--dark-bg))',
+				'card-bg': 'hsl(var(--card-bg))',
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-mining': 'var(--gradient-mining)',
+				'gradient-card': 'var(--gradient-card)',
+			},
+			boxShadow: {
+				'glow-blue': 'var(--glow-blue)',
+				'glow-green': 'var(--glow-green)',
+				'glow-orange': 'var(--glow-orange)',
+				'card': 'var(--shadow-card)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +102,46 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'50%': { 
+						opacity: '0.8',
+						transform: 'scale(1.05)'
+					}
+				},
+				'mining-pulse': {
+					'0%': { 
+						boxShadow: '0 0 0 0 hsl(var(--neon-green) / 0.7)'
+					},
+					'70%': {
+						boxShadow: '0 0 0 10px hsl(var(--neon-green) / 0)'
+					},
+					'100%': {
+						boxShadow: '0 0 0 0 hsl(var(--neon-green) / 0)'
+					}
+				},
+				'coin-bounce': {
+					'0%, 20%, 50%, 80%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'40%': {
+						transform: 'translateY(-10px)'
+					},
+					'60%': {
+						transform: 'translateY(-5px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow var(--pulse-duration) ease-in-out infinite',
+				'mining-pulse': 'mining-pulse 2s infinite',
+				'coin-bounce': 'coin-bounce 1s ease-in-out'
 			}
 		}
 	},

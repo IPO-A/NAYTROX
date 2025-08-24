@@ -1,11 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { MiningDashboard } from "@/components/MiningDashboard";
+import logo from "@/assets/digicoin-logo.png";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-dark-bg">
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center mb-6">
+            <img src={logo} alt="DigiCoin Quest Logo" className="w-16 h-16 mr-4 animate-pulse-glow" />
+            <h1 className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-pulse-glow">
+              DigiCoin Quest
+            </h1>
+          </div>
+          <p className="text-xl text-muted-foreground">
+            ابدأ رحلة التعدين واكسب العملات الرقمية
+          </p>
+        </div>
+        <MiningDashboard />
       </div>
     </div>
   );
