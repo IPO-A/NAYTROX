@@ -9,11 +9,11 @@ const Index = () => {
           <div className="flex items-center justify-center mb-6">
             <img src={logo} alt="DigiCoin Quest Logo" className="w-16 h-16 mr-4 animate-pulse-glow" />
             <h1 className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-pulse-glow">
-              DigiCoin Quest
+              NAYTROX
             </h1>
           </div>
           <p className="text-xl text-muted-foreground">
-            ابدأ رحلة التعدين واكسب العملات الرقمية
+            ابدأ رحلة التعدين واكسب عملات NAYTROX الرقمية المستقبلية
           </p>
         </div>
         <MiningDashboard />

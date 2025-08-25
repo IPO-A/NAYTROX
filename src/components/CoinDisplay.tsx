@@ -35,14 +35,14 @@ export const CoinDisplay = ({ coins }: CoinDisplayProps) => {
       <div className="bg-gradient-card p-8 rounded-2xl border border-border shadow-card max-w-md mx-auto">
         <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
           <div className={`text-6xl ${isIncreasing ? 'animate-coin-bounce' : 'animate-pulse-glow'}`}>
-            🪙
+            🌟
           </div>
           <div>
-            <p className="text-sm text-muted-foreground mb-1">رصيدك الحالي</p>
+            <p className="text-sm text-muted-foreground mb-1">رصيد NAYTROX</p>
             <p className={`text-4xl font-bold ${isIncreasing ? 'text-neon-green animate-pulse' : 'text-neon-blue'} transition-colors duration-300`}>
               {displayCoins.toFixed(1)}
             </p>
-            <p className="text-sm text-muted-foreground">عملة رقمية</p>
+            <p className="text-sm text-cyber-purple font-bold">NAYTROX</p>
           </div>
         </div>
         

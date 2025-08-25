@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MiningButton } from "./MiningButton";
+import { MiningCharacter } from "./MiningCharacter";
 import { StatsCard } from "./StatsCard";
 import { CoinDisplay } from "./CoinDisplay";
 import { toast } from "sonner";
@@ -36,7 +37,7 @@ export const MiningDashboard = () => {
     setTotalMined(prev => prev + mineAmount);
     setEnergyUsed(prev => prev + 0.2);
     
-    toast.success(`تم تعدين ${mineAmount.toFixed(2)} عملة!`, {
+    toast.success(`تم تعدين ${mineAmount.toFixed(2)} NAYTROX!`, {
       duration: 2000,
     });
   };
@@ -53,7 +54,7 @@ export const MiningDashboard = () => {
       
       toast.success(`تم ترقية ${type === 'pickaxe' ? 'المعول' : type === 'processor' ? 'المعالج' : 'المبرد'}!`);
     } else {
-      toast.error("عملات غير كافية للترقية!");
+      toast.error("NAYTROX غير كافية للترقية!");
     }
   };
 
@@ -66,7 +67,7 @@ export const MiningDashboard = () => {
       setIsAutoMining(false);
       toast.info("تم إيقاف التعدين التلقائي");
     } else {
-      toast.error("تحتاج 50 عملة لتفعيل التعدين التلقائي!");
+      toast.error("تحتاج 50 NAYTROX لتفعيل التعدين التلقائي!");
     }
   };
 
@@ -80,13 +81,19 @@ export const MiningDashboard = () => {
       {/* Mining Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         <div className="space-y-6">
-          <div className="bg-gradient-card p-8 rounded-2xl border border-border shadow-card">
+          {/* Character Section */}
+          <div className="bg-gradient-card p-8 rounded-2xl border border-border shadow-card card-hover">
             <h2 className="text-2xl font-bold text-center mb-6 text-neon-blue">
-              مركز التعدين
+              محارب التعدين
             </h2>
-            <MiningButton onClick={handleMine} isAutoMining={isAutoMining} />
-            
-            <div className="mt-6">
+            <MiningCharacter onMine={handleMine} isAutoMining={isAutoMining} />
+          </div>
+          
+          {/* Controls Section */}
+          <div className="bg-gradient-card p-6 rounded-2xl border border-border shadow-card">
+            <div className="space-y-4">
+              <MiningButton onClick={handleMine} isAutoMining={isAutoMining} />
+              
               <button
                 onClick={toggleAutoMining}
                 className={`w-full py-3 px-6 rounded-xl font-bold transition-all duration-300 ${
@@ -95,7 +102,7 @@ export const MiningDashboard = () => {
                     : 'bg-gradient-primary text-primary-foreground shadow-glow-blue hover:scale-105'
                 }`}
               >
-                {isAutoMining ? 'إيقاف التعدين التلقائي' : 'تفعيل التعدين التلقائي (50 عملة)'}
+                {isAutoMining ? 'إيقاف التعدين التلقائي' : 'تفعيل التعدين التلقائي (50 NAYTROX)'}
               </button>
             </div>
           </div>
@@ -105,12 +112,12 @@ export const MiningDashboard = () => {
         <div className="space-y-4">
           <StatsCard
             title="معدل التعدين"
-            value={`${miningRate.toFixed(1)} عملة/ثانية`}
+            value={`${miningRate.toFixed(1)} NAYTROX/ثانية`}
             icon="⚡"
             color="neon-green"
           />
           <StatsCard
-            title="إجمالي العملات المُعدنة"
+            title="إجمالي NAYTROX المُعدنة"
             value={totalMined.toFixed(1)}
             icon="💎"
             color="neon-blue"
@@ -139,7 +146,7 @@ export const MiningDashboard = () => {
                 onClick={() => handleUpgrade('pickaxe')}
                 className="w-full py-2 px-4 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
               >
-                ترقية ({upgrades.pickaxe * 10} عملة)
+                ترقية ({upgrades.pickaxe * 10} NAYTROX)
               </button>
             </div>
           </div>
@@ -153,7 +160,7 @@ export const MiningDashboard = () => {
                 onClick={() => handleUpgrade('processor')}
                 className="w-full py-2 px-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
               >
-                ترقية ({upgrades.processor * 10} عملة)
+                ترقية ({upgrades.processor * 10} NAYTROX)
               </button>
             </div>
           </div>
@@ -167,7 +174,7 @@ export const MiningDashboard = () => {
                 onClick={() => handleUpgrade('cooler')}
                 className="w-full py-2 px-4 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors"
               >
-                ترقية ({upgrades.cooler * 10} عملة)
+                ترقية ({upgrades.cooler * 10} NAYTROX)
               </button>
             </div>
           </div>
