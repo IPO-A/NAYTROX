@@ -45,12 +45,15 @@ export const MiningCharacter = ({ onMine, isAutoMining }: MiningCharacterProps) 
         >
           <img
             src={miningCharacter}
-            alt="NAYTROX Mining Character"
-            className={`w-48 h-48 rounded-full border-4 transition-all duration-300 ${
+            alt="NAYTROX Mining Character - Click to mine cryptocurrency"
+            className={`w-48 h-48 rounded-full border-4 transition-all duration-300 object-cover ${
               isAutoMining 
                 ? 'border-neon-green shadow-glow-green' 
                 : 'border-neon-blue shadow-glow-blue hover:border-cyber-purple hover:shadow-[0_0_30px_hsl(var(--cyber-purple)/0.8)]'
             }`}
+            width="192"
+            height="192"
+            loading="eager"
           />
           
           {/* Click Effect */}

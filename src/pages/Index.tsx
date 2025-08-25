@@ -7,7 +7,14 @@ const Index = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-6">
-            <img src={logo} alt="DigiCoin Quest Logo" className="w-16 h-16 mr-4 animate-pulse-glow" />
+            <img 
+              src={logo} 
+              alt="NAYTROX Cryptocurrency Mining Logo" 
+              className="w-16 h-16 mr-4 animate-pulse-glow object-contain" 
+              width="64"
+              height="64"
+              loading="eager"
+            />
             <h1 className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-pulse-glow">
               NAYTROX
             </h1>
