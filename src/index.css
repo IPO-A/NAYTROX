@@ -59,9 +59,12 @@ All colors MUST be HSL.
     --glow-orange: 0 0 20px hsl(var(--neon-orange) / 0.5);
     --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --pulse-duration: 2s;
+  /* Custom Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Glowing Effects */
+  --glow-primary: 0 0 20px hsl(var(--primary) / 0.5);
+  --glow-secondary: 0 0 15px hsl(var(--secondary) / 0.4);
 
     --sidebar-background: 0 0% 98%;
 
@@ -182,13 +185,48 @@ All colors MUST be HSL.
     transform: translateY(0);
   }
   
-  /* Card hover effects */
-  .card-hover {
-    transition: var(--transition-smooth);
+/* Custom utility classes */
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
   }
-  
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card), var(--glow-blue);
+  to {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.8), 0 0 40px hsl(var(--primary) / 0.3);
   }
+}
+
+/* Smooth scroll for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced backdrop blur effects */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Animated gradient background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Glowing hover effects */
+.hover-glow:hover {
+  box-shadow: var(--glow-primary);
+  transform: translateY(-2px);
+  transition: var(--transition-smooth);
 }

@@ -9,6 +9,9 @@ import { DailyTasks } from "./DailyTasks";
 import { MiningStats } from "./MiningStats";
 import { Leaderboard } from "./Leaderboard";
 import { MinerWallet } from "./MinerWallet";
+import { PriceTracker } from "./PriceTracker";
+import { NewsUpdates } from "./NewsUpdates";
+import { MarketOverview } from "./MarketOverview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 
@@ -115,31 +118,40 @@ export const MiningDashboard = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto space-y-8">
+      {/* Price Tracker */}
+      <PriceTracker />
+      
+      {/* News Updates */}
+      <NewsUpdates />
+      
+      {/* Market Overview */}
+      <MarketOverview />
+
       {/* Coin Display */}
-      <div className="mb-8">
+      <div className="mb-6">
         <CoinDisplay coins={coins} />
       </div>
 
       {/* Navigation Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-6 mb-8 bg-gradient-card border-border">
-          <TabsTrigger value="mining" className="data-[state=active]:bg-neon-blue data-[state=active]:text-dark-bg">
+        <TabsList className="grid w-full grid-cols-6 mb-8 bg-card/50 backdrop-blur-sm border-border/50">
+          <TabsTrigger value="mining" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             ⛏️ التعدين
           </TabsTrigger>
-          <TabsTrigger value="stats" className="data-[state=active]:bg-neon-green data-[state=active]:text-dark-bg">
+          <TabsTrigger value="stats" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             📊 الإحصائيات
           </TabsTrigger>
-          <TabsTrigger value="tasks" className="data-[state=active]:bg-neon-orange data-[state=active]:text-dark-bg">
+          <TabsTrigger value="tasks" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             🎯 المهام
           </TabsTrigger>
-          <TabsTrigger value="achievements" className="data-[state=active]:bg-cyber-purple data-[state=active]:text-dark-bg">
+          <TabsTrigger value="achievements" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             🏆 الإنجازات
           </TabsTrigger>
-          <TabsTrigger value="leaderboard" className="data-[state=active]:bg-neon-blue data-[state=active]:text-dark-bg">
+          <TabsTrigger value="leaderboard" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             👑 المتصدرين
           </TabsTrigger>
-          <TabsTrigger value="wallet" className="data-[state=active]:bg-neon-green data-[state=active]:text-dark-bg">
+          <TabsTrigger value="wallet" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             💎 المحفظة
           </TabsTrigger>
         </TabsList>
