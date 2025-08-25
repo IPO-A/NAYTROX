@@ -34,6 +34,22 @@ export const MiningDashboard = () => {
     cooler: 1
   });
 
+  // Hash-based navigation sync
+  useEffect(() => {
+    const validTabs = ['mining','stats','tasks','achievements','leaderboard','wallet'];
+    const applyHash = () => {
+      const hash = window.location.hash.replace('#','');
+      if (validTabs.includes(hash)) {
+        setActiveTab(hash);
+        const el = document.getElementById('dashboard-tabs');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
+  }, []);
+
   // Auto mining effect
   useEffect(() => {
     if (isAutoMining && currentEnergy > 0) {
@@ -49,6 +65,17 @@ export const MiningDashboard = () => {
       return () => clearInterval(interval);
     }
   }, [isAutoMining, miningRate, currentEnergy]);
+
+  // Keep URL hash in sync with active tab
+  useEffect(() => {
+    const validTabs = ['mining','stats','tasks','achievements','leaderboard','wallet'];
+    if (validTabs.includes(activeTab)) {
+      const current = window.location.hash.replace('#','');
+      if (current !== activeTab) {
+        history.replaceState(null, '', `#${activeTab}`);
+      }
+    }
+  }, [activeTab]);
 
   // تتبع الوقت المنقضي
   useEffect(() => {
@@ -120,21 +147,26 @@ export const MiningDashboard = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-8">
       {/* Price Tracker */}
-      <PriceTracker />
+      <section id="price">
+        <PriceTracker />
+      </section>
       
       {/* News Updates */}
-      <NewsUpdates />
+      <section id="news">
+        <NewsUpdates />
+      </section>
       
       {/* Market Overview */}
-      <MarketOverview />
-
+      <section id="market">
+        <MarketOverview />
+      </section>
       {/* Coin Display */}
       <div className="mb-6">
         <CoinDisplay coins={coins} />
       </div>
 
       {/* Navigation Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+      <Tabs id="dashboard-tabs" value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-6 mb-8 bg-card/50 backdrop-blur-sm border-border/50">
           <TabsTrigger value="mining" className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary hover-glow">
             ⛏️ التعدين

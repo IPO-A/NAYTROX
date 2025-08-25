@@ -1,9 +1,11 @@
 import { MiningDashboard } from "@/components/MiningDashboard";
 import logo from "@/assets/digicoin-logo.png";
+import HeaderNav from "@/components/HeaderNav";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-dark-bg">
+      <HeaderNav />
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-6">
@@ -15,7 +17,7 @@ const Index = () => {
               height="64"
               loading="eager"
             />
-            <h1 className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-pulse-glow">
+            <h1 className="text-6xl font-bold font-playfair bg-gradient-primary bg-clip-text text-transparent animate-pulse-glow">
               NAYTROX
             </h1>
           </div>
