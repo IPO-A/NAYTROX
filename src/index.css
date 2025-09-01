@@ -231,3 +231,45 @@ html {
   transform: translateY(-2px);
   transition: var(--transition-smooth);
 }
+/* هيدر الموقع */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f5f6fa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-wrap: wrap; /* ليصبح متجاوب على الشاشات الصغيرة */
+}
+
+/* شعار الموقع */
+header .logo {
+  max-height: 50px;
+  display: block;
+}
+
+/* روابط الهيدر */
+header nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #273c75;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+header nav a:hover {
+  color: #40739e;
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  header nav a {
+    margin: 5px;
+    font-size: 14px;
+  }
+}
